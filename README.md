@@ -1,1 +1,1 @@
-# cpp_dsktp_genai_plgrnd
+# cpp_app_plgrnd

@@ -16,6 +16,15 @@ The mentioned dependencies can be installed using the official documentation [he
 
 ## Setup and Running the Application
 
+### Create .env File
+
+Copy the .env.example file to .env in the root of the project directory:
+
+```sh
+cp .env.example .env
+```
+Update the .env file with your local development credentials and secrets. Make sure not to commit this .env file to version control. 
+
 ### Clone the Repositories
 
 To run the web application with the React front-end, clone the following repositories within the same folder:

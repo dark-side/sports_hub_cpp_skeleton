@@ -7,12 +7,10 @@ using namespace Poco::Net;
 
 int AuthServiceApp::main(const std::vector<std::string>&) {
 
-    // Load default configuration
-    loadConfiguration(); // Loads the default configuration file (config.properties)
+    loadConfiguration("config/config.properties", PRIO_APPLICATION);
 
-    // Read IP and port from the configuration
-    std::string ip = config().getString("server.ip", "127.0.0.1"); // Default to 127.0.0.1
-    int port = config().getInt("server.port", 8080); // Default to 8080
+    std::string ip = config().getString("server.ip", "0.0.0.0");
+    int port = config().getInt("server.port", 8080);
 
     // Create and start the HTTP server
     HTTPServer server(new AuthHandlerFactory(), ServerSocket(SocketAddress(ip, port)), new HTTPServerParams);

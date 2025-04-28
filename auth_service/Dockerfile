@@ -6,7 +6,7 @@ WORKDIR /app
 
 COPY . .
 
-RUN cmake . && make
+RUN cmake . && cmake --build . --target auth_service
 
 EXPOSE 8080
 

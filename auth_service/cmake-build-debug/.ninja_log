@@ -1,0 +1,23 @@
+# ninja log v6
+3	463	1745842707768451513	CMakeFiles/auth_service.dir/src/Infrastructure/Database.cpp.o	421fb9aa927e2f0c
+1960	2587	1745838333506771683	auth_service_tests	6fe6a8bdfadd897a
+9	2617	1745842799858389174	CMakeFiles/auth_service.dir/src/Presentation/AuthHandlerFactory.cpp.o	f7ad3b5b4618eec
+2179	2466	1744700859414566950	auth_service	c79cc5543f7d5627
+5	2254	1745842707770072107	CMakeFiles/auth_service.dir/src/Presentation/SignInHandler.cpp.o	b038748ea31a56be
+1	1959	1745838331548426270	CMakeFiles/auth_service_tests.dir/tests/TokenGeneratorTest.cpp.o	6ec473f2d1a4c81a
+5	2255	1745842707770805421	CMakeFiles/auth_service.dir/src/Presentation/SignOutHandler.cpp.o	235663be3d9c1757
+3	463	1745842707768844234	CMakeFiles/auth_service.dir/src/Infrastructure/UserRepository.cpp.o	c88336a7cbddaedf
+3	463	1745842707767993784	CMakeFiles/auth_service.dir/src/Domain/TokenGenerator.cpp.o	2c81b195e917302
+6	2257	1745842707771245807	CMakeFiles/auth_service.dir/src/Presentation/UsersHandler.cpp.o	6f327c90cf7b8323
+2	2174	1744700857238785347	CMakeFiles/auth_service.dir/src/cpp_auth_service.cpp.o	ce3bf081afc0a869
+6	2491	1745842707771753809	CMakeFiles/auth_service.dir/src/main.cpp.o	5cd21871b655c72d
+11	282	1745842936150340236	build.ninja	c1070bc3269d13f3
+8	276	1745842936150340236	build.ninja	c1070bc3269d13f3
+7	1729	1745842936178517114	CMakeFiles/auth_service.dir/src/Application/AuthServiceApp.cpp.o	dd049f473cffc16f
+1730	2089	1745842937900968210	auth_service	287e7bfafc59a34
+12	1755	1745843090671686797	CMakeFiles/auth_service.dir/src/Presentation/UsersHandler.cpp.o	6f327c90cf7b8323
+9	1757	1745843090669870473	CMakeFiles/auth_service.dir/src/Presentation/SignInHandler.cpp.o	b038748ea31a56be
+11	1759	1745843090670736299	CMakeFiles/auth_service.dir/src/Presentation/SignOutHandler.cpp.o	235663be3d9c1757
+1759	1862	1745843092419136099	auth_service	287e7bfafc59a34
+12	2826	1745843376315052830	CMakeFiles/auth_service.dir/src/Presentation/AuthHandlerFactory.cpp.o	f7ad3b5b4618eec
+2826	3087	1745843379109297555	auth_service	287e7bfafc59a34

@@ -1,0 +1,5 @@
+/Users/afedor/work/plgrnd/cpp_dsktp_genai_plgrnd/auth_service/cmake-build-debug/CMakeFiles/auth_service.dir
+/Users/afedor/work/plgrnd/cpp_dsktp_genai_plgrnd/auth_service/cmake-build-debug/CMakeFiles/auth_service_tests.dir
+/Users/afedor/work/plgrnd/cpp_dsktp_genai_plgrnd/auth_service/cmake-build-debug/CMakeFiles/test.dir
+/Users/afedor/work/plgrnd/cpp_dsktp_genai_plgrnd/auth_service/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/afedor/work/plgrnd/cpp_dsktp_genai_plgrnd/auth_service/cmake-build-debug/CMakeFiles/rebuild_cache.dir

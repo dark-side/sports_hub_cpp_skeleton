@@ -23,8 +23,6 @@ services:
     container_name: backend_service
     build:
       context: ./backend_service
-    expose:
-      - "8082"  
     ports:
       - 8082:8080
     depends_on:

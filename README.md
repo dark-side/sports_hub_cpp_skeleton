@@ -11,10 +11,17 @@ TODO
 
 - Docker
 - Docker Compose
+- Poco 
+- jwt-cpp
 
 The mentioned dependencies can be installed using the official documentation [here](https://docs.docker.com/compose/install/).
 
 ## Setup and Running the Application
+
+```sh
+cd cpp_dsktp_genai_plgrnd/auth_service
+git clone https://github.com/Thalhammer/jwt-cpp.git external/jwt-cpp
+```
 
 ### Create .env File
 

@@ -23,6 +23,7 @@ docker-compose.override.yml
 # Ignore IDE files (e.g., CLion, VSCode)
 .idea/
 .vscode/
+*cmake-build*
 
 # Ignore system files
 .DS_Store

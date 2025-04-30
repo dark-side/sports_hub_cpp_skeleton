@@ -3,7 +3,8 @@ project(auth_service)
 
 set(CMAKE_CXX_STANDARD 20)
 
-find_package(Poco REQUIRED COMPONENTS Net Util)
+find_package(Poco REQUIRED COMPONENTS Net Util JSON)
+find_package(OpenSSL REQUIRED)
 
 file(GLOB SOURCES
         src/*.cpp
@@ -15,22 +16,31 @@ file(GLOB SOURCES
 
 file(GLOB HEADERS
         src/*.h
+        src/Models/*.h
         src/Presentation/*.h
         src/Application/*.h
         src/Domain/*.h
         src/Infrastructure/*.h
 )
 
+if (NOT DEFINED JWT_CPP_INCLUDE_DIR)
+    set(JWT_CPP_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/external/jwt-cpp/include)
+endif ()
+
+include_directories(${CMAKE_SOURCE_DIR}/src
+        ${JWT_CPP_INCLUDE_DIR})
+
 add_executable(auth_service ${SOURCES} ${HEADERS})
 
 target_link_libraries(auth_service PRIVATE
         Poco::Net
-        Poco::Util)
-
+        Poco::Util
+        Poco::JSON
+        OpenSSL::SSL
+        OpenSSL::Crypto)
 
 option(BUILD_TESTS "Build tests" OFF)
-
-if(BUILD_TESTS)
+if (BUILD_TESTS)
     enable_testing()
     find_package(GTest REQUIRED)
 
@@ -46,4 +56,4 @@ if(BUILD_TESTS)
     )
 
     add_test(NAME TokenGeneratorTest COMMAND auth_service_tests)
-endif()
+endif ()

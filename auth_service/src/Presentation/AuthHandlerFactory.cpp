@@ -2,6 +2,7 @@
 #include "UsersHandler.h"
 #include "SignInHandler.h"
 #include "SignOutHandler.h"
+#include "OptionsHandler.h"
 #include <regex>
 
 using namespace Poco::Net;
@@ -17,20 +18,29 @@ namespace {
     }
 }
 
-HTTPRequestHandler* AuthHandlerFactory::createRequestHandler(const HTTPServerRequest& request) {
 
+HTTPRequestHandler* AuthHandlerFactory::createRequestHandler(const HTTPServerRequest& request) {
     const auto& url = request.getURI();
+
+    cout << "URL: " << url << endl;
+
     const auto& method = request.getMethod();
 
-    if(urlContains(url, "/users") && method == "POST") {
+    cout << "Method: " << method << endl;
+
+    if (urlContains(url, "/auth/sign_in") && method == "OPTIONS") {
+        return new OptionsHandler();
+    }
+
+    if (urlContains(url, "/users") && method == "POST") {
         return new UsersHandler();
     }
 
-    if(urlContains(url, "/auth/sign_in") && method == "POST") {
+    if (urlContains(url, "/auth/sign_in") && method == "POST") {
         return new SignInHandler();
     }
 
-    if(urlContains(url, "/auth/sign_out") && method == "DELETE") {
+    if (urlContains(url, "/auth/sign_out") && method == "DELETE") {
         return new SignOutHandler();
     }
 

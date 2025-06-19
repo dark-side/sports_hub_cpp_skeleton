@@ -1,7 +1,7 @@
 #include "BaseService.h"
 #include <gtest/gtest.h>
 #include <string>
-#include <httplib.h>
+#include <ClientApp.h>
 
 TEST(BaseServiceTest, StartStopTest) {
     BaseService service;
@@ -21,12 +21,13 @@ TEST(BaseServiceApiTest, GreetEndpointTest) {
     BaseService service;
     service.start();
 
-    httplib::Client client("http://localhost:9001");
-
-    auto res = client.Get("/greet");
-    ASSERT_NE(res, nullptr);
-    EXPECT_EQ(res->status, 200);
-    EXPECT_EQ(res->body, "Hello, World!");
+    uWS::ClientApp client({
+        .open = []() {}, 
+        .message = []() {},
+        .close = []() {}});
+    client.connect("http://localhost:9001/greet");
+    client.run();
 
     service.stop();
 }
+

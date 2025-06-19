@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.10)
 
-project(BaseServiceProject VERSION 1.0 LANGUAGES CXX)
+project(BaseServiceProject VERSION 1.0 LANGUAGES CXX C)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
@@ -32,38 +32,38 @@ add_test(NAME BaseServiceTests COMMAND BaseServiceTests)
 
 # Add uSockets
 FetchContent_Declare(
-  uSockets_content
+  usockets
   GIT_REPOSITORY https://github.com/uNetworking/uSockets
   GIT_TAG v0.8.8
   GIT_SHALLOW ON
   GIT_SUBMODULES ""
 )
-FetchContent_MakeAvailable(uSockets_content)
+FetchContent_MakeAvailable(usockets)
 
 # Create uSockets library
-file(GLOB_RECURSE SOURCES ${usockets_content_SOURCE_DIR}/src/*.c)
-add_library(uSockets ${SOURCES})
-include_directories(${usockets_content_SOURCE_DIR}/src/)
-target_include_directories(uSockets PUBLIC ${usockets_content_SOURCE_DIR}/src)
-target_compile_definitions(uSockets PRIVATE LIBUS_NO_SSL)
+file(GLOB_RECURSE usockets_SOURCES ${usockets_SOURCE_DIR}/src/*.c)
+add_library(usockets ${usockets_SOURCES})
+include_directories(${usockets_SOURCE_DIR}/src/)
+target_include_directories(usockets PUBLIC ${usockets_SOURCE_DIR}/src)
+target_compile_definitions(usockets PRIVATE LIBUS_NO_SSL)
 
 # Add uWebSockets
 FetchContent_Declare(
-  uWebSockets_content
+  uwebsockets
   GIT_REPOSITORY https://github.com/uNetworking/uWebSockets
   GIT_TAG v20.74.0
   GIT_SHALLOW ON
   GIT_SUBMODULES ""
 )
-FetchContent_MakeAvailable(uWebSockets_content)
+FetchContent_MakeAvailable(uwebsockets)
 
 # Create uWebSockets library
 find_package(ZLIB REQUIRED)
-add_library(uWebSockets INTERFACE)
-include_directories(${uwebsockets_content_SOURCE_DIR}/src/)
-target_include_directories(uWebSockets INTERFACE ${uwebsockets_content_SOURCE_DIR}/src/)
-target_link_libraries(uWebSockets INTERFACE uSockets ${ZLIB_LIBRARIES})
+add_library(uwebsockets INTERFACE)
+include_directories(${uwebsockets_SOURCE_DIR}/src/)
+target_include_directories(uwebsockets INTERFACE ${uwebsockets_SOURCE_DIR}/src/)
+target_link_libraries(uwebsockets INTERFACE usockets ${ZLIB_LIBRARIES})
 #target_compile_options(uWebSockets INTERFACE -Wno-deprecated-declarations)
 
 # Link uWebSockets to the BaseService
-target_link_libraries(BaseService PRIVATE uSockets uWebSockets)
+target_link_libraries(BaseService PRIVATE usockets uwebsockets)

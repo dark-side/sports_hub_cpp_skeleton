@@ -1,6 +1,7 @@
 #include "AuthServiceApp.h"
 #include <Presentation/AuthHandlerFactory.h>
 #include <Poco/Net/HTTPServer.h>
+#include <iostream>
 
 using namespace Poco::Util;
 using namespace Poco::Net;

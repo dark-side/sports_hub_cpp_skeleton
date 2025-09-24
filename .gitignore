@@ -3,6 +3,7 @@
 
 # Ignore CMake and build directories
 /build
+/auth_service/build
 /CMakeFiles
 /CMakeCache.txt
 /Dockerfile

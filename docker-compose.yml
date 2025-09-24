@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   auth_service:
-    container_name: auth_service
+    container_name: cpp_hub_auth_service
     build:
       context: ./auth_service
     ports:
@@ -20,7 +20,7 @@ services:
       - DB_PASSWORD=${POSTGRES_PASSWORD}
 
   backend_service:
-    container_name: backend_service
+    container_name: cpp_hub_backend_service
     build:
       context: ./backend_service
     ports:
@@ -38,7 +38,7 @@ services:
       - DB_PASSWORD=${POSTGRES_PASSWORD}
 
   db:
-    container_name: db
+    container_name: cpp_hub_db
     image: postgres:alpine
     ports:
       - 5433:5432
@@ -52,7 +52,7 @@ services:
       - app_network
 
   nginx:
-    container_name: nginx
+    container_name: cpp_hub_nginx
     image: nginx:latest
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
@@ -66,7 +66,7 @@ services:
       
   # React Frontend
   react_frontend:
-    build: ../reactjs_fe_genai_plgrnd
+    build: ../sports_hub_react_skeleton
     depends_on:
       - backend_service
       - auth_service

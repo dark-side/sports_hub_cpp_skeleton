@@ -1,5 +1,5 @@
 #include "OptionsHandler.h"
-
+#include <iostream>
 #include <Poco/Net/HTTPServerResponse.h>
 
 using namespace Poco::Net;

@@ -1,27 +1,37 @@
-# C++ Back-End and Auth services
- 
+# Sports-Hub Application C++ Back-End
+
 ## Project Description
 
-TODO
+This is a draft pet project for testing Generative AI on different software engineering tasks. It is planned to evolve and grow over time and extend it to other technologies. Specifically, this repo will be a C++ playground with Poco libraries.
+
+The application's legend is based on the sports-hub application description from the following repo: [Sports-Hub](https://github.com/dark-side/sports-hub).
 
 ## Available Front-End applications
-- [React.js](https://github.com/rtriska/reactjs_fe_genai_plgrnd)
+- [React.js](https://github.com/dark-side/sports_hub_react_skeleton)
+- [Angular](https://github.com/dark-side/sports_hub_angular_skeleton)
 
 ## Dependencies
 
 - Docker
 - Docker Compose
-- Poco 
-- jwt-cpp
 
 The mentioned dependencies can be installed using the official documentation [here](https://docs.docker.com/compose/install/).
+[Podman](https://podman-desktop.io/docs/compose) can be used as an alternative to Docker.
 
 ## Setup and Running the Application
 
+### Clone the Repositories
+
+To run the web application with the React front-end, clone the following repositories within the same folder:
+
 ```sh
-cd cpp_dsktp_genai_plgrnd/auth_service
-git clone https://github.com/Thalhammer/jwt-cpp.git external/jwt-cpp
+git clone git@github.com:dark-side/sports_hub_cpp_skeleton.git
+git clone git@github.com:dark-side/sports_hub_react_skeleton.git
 ```
+
+### Navigate to the back-end application directory
+
+All commands should be run from the `sports_hub_cpp_skeleton` directory.
 
 ### Create .env File
 
@@ -30,26 +40,18 @@ Copy the .env.example file to .env in the root of the project directory:
 ```sh
 cp .env.example .env
 ```
+
 Update the .env file with your local development credentials and secrets. Make sure not to commit this .env file to version control. 
-
-### Clone the Repositories
-
-To run the web application with the React front-end, clone the following repositories within the same folder:
-
-```sh
-git clone git@github.com:rtriska/cpp_app_plgrnd.git
-git clone git@github.com:rtriska/reactjs_fe_genai_plgrnd.git
-```
 
 ### Run Docker Compose
 
-Navigate to the back-end application directory and run:
+Navigate to the back-end application directory and run (`-d` for detached mode to run in the background):
 
 ```sh
-docker compose up
+docker compose up -d
 ```
 
-### Attach to the Backend Container
+### Attach to the Backend Container (optional)
 
 Run `docker ps` and copy the `backend` application container ID. Then, connect to the container with the following command:
 

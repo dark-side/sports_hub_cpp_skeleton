@@ -7,7 +7,6 @@
 #include <Poco/Dynamic/Var.h>
 #include <iostream>
 #include <string>
-#include <jwt-cpp/jwt.h>
 
 using namespace std;
 using namespace Poco::Net;

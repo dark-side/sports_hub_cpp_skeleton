@@ -1,5 +1,6 @@
 #include "SignOutHandler.h"
 #include <Poco/Net/HTTPServerResponse.h>
+#include <iostream>
 
 using namespace Poco::Net;
 

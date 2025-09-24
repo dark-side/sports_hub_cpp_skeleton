@@ -4,6 +4,7 @@
 #include "SignOutHandler.h"
 #include "OptionsHandler.h"
 #include <regex>
+#include <iostream>
 
 using namespace Poco::Net;
 using namespace std;

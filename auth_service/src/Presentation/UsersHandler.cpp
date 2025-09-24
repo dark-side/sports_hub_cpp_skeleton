@@ -1,5 +1,6 @@
 #include "UsersHandler.h"
 #include <Poco/Net/HTTPServerResponse.h>
+#include <iostream>
 
 using namespace Poco::Net;
 

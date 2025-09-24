@@ -3,8 +3,7 @@ project(auth_service)
 
 set(CMAKE_CXX_STANDARD 20)
 
-find_package(Poco REQUIRED COMPONENTS Net Util JSON)
-find_package(OpenSSL REQUIRED)
+find_package(Poco REQUIRED COMPONENTS Net Util JSON JWT)
 
 file(GLOB SOURCES
         src/*.cpp
@@ -23,12 +22,8 @@ file(GLOB HEADERS
         src/Infrastructure/*.h
 )
 
-if (NOT DEFINED JWT_CPP_INCLUDE_DIR)
-    set(JWT_CPP_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/external/jwt-cpp/include)
-endif ()
-
 include_directories(${CMAKE_SOURCE_DIR}/src
-        ${JWT_CPP_INCLUDE_DIR})
+)
 
 add_executable(auth_service ${SOURCES} ${HEADERS})
 
@@ -36,8 +31,8 @@ target_link_libraries(auth_service PRIVATE
         Poco::Net
         Poco::Util
         Poco::JSON
-        OpenSSL::SSL
-        OpenSSL::Crypto)
+        Poco::JWT
+)
 
 option(BUILD_TESTS "Build tests" OFF)
 if (BUILD_TESTS)

@@ -1,8 +1,7 @@
 #include "JwtToken.h"
-#include <string>
-#include <stdexcept>
-#include <chrono>
-#include <cstdlib>
+#include <Poco/JWT/Signer.h>
+#include <Poco/JWT/Token.h>
+using namespace Poco::JWT;
 
 JwtToken::JwtToken() : _issuer("ydhnwb") {
         const char* envSecret = std::getenv("JWT_SECRET");
@@ -10,21 +9,12 @@ JwtToken::JwtToken() : _issuer("ydhnwb") {
     }
 
 std::string JwtToken::generateToken(const std::string& userID) {
-        auto token = jwt::create()
-            .set_issuer(_issuer)
-            .set_subject(userID)
-            .set_issued_at(std::chrono::system_clock::now())
-            .set_expires_at(std::chrono::system_clock::now() + std::chrono::hours(24 * 365)) // 1 year
-            .sign(jwt::algorithm::hs256{_secretKey});
-        return token;
-}
-
-jwt::decoded_jwt<jwt::traits::kazuho_picojson> JwtToken::validateToken(const std::string& token) {
-        auto verifier = jwt::verify()
-            .allow_algorithm(jwt::algorithm::hs256{_secretKey})
-            .with_issuer(_issuer);
-
-        auto decoded = jwt::decode(token);
-        verifier.verify(decoded);
-        return decoded;
+        Token token;
+        token.setType("JWT");
+        token.setSubject(userID);
+        token.setIssuedAt(Poco::Timestamp());
+        token.setExpiration(Poco::Timestamp() + Poco::Timespan(365, 0, 0, 0, 0)); // 1 year
+        Signer signer(_secretKey);
+        std::string jwt = signer.sign(token, Signer::ALGO_HS256);
+        return jwt;
 }

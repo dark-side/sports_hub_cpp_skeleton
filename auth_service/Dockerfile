@@ -1,15 +1,12 @@
-FROM fedora:39
+FROM debian:stable-slim
 
-RUN dnf install -y gcc-c++ make cmake poco-devel postgresql-devel openssl-devel && dnf clean all
+RUN apt-get update && apt-get install -y g++ make cmake libpoco-dev && apt-get clean
 
 WORKDIR /app
 
 COPY . .
 
-RUN if [ ! -d "/app/external" ]; then dnf install -y git && dnf clean all; fi
-RUN if [ ! -d "/app/external" ]; then git clone https://github.com/Thalhammer/jwt-cpp.git /app/external/jwt-cpp; fi
-
-RUN cmake -DJWT_CPP_INCLUDE_DIR=/app/external/jwt-cpp/include . && cmake --build . --target auth_service
+RUN cmake . && cmake --build . --target auth_service
 
 EXPOSE 8080
 

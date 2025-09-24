@@ -1,6 +1,6 @@
-FROM fedora:39
+FROM debian:stable-slim
 
-RUN dnf install -y gcc-c++ make cmake poco-devel postgresql-devel && dnf clean all
+RUN apt-get update && apt-get install -y g++ make cmake libpoco-dev && apt-get clean
 
 WORKDIR /app
 

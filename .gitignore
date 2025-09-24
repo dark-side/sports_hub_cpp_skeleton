@@ -1,0 +1,31 @@
+# Ignore the .env file (environment variables)
+.env
+
+# Ignore CMake and build directories
+/build
+/auth_service/build
+/CMakeFiles
+/CMakeCache.txt
+/Dockerfile
+
+# Ignore generated files from Docker
+*.tar
+*.log
+docker-compose.override.yml
+
+# Ignore compiled object files and binaries
+*.o
+*.a
+*.so
+*.out
+*.exe
+*.dll
+
+# Ignore IDE files (e.g., CLion, VSCode)
+.idea/
+.vscode/
+*cmake-build*
+
+# Ignore system files
+.DS_Store
+

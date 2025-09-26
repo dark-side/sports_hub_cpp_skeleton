@@ -2,7 +2,7 @@
 
 ## Project Description
 
-This is a draft pet project for testing Generative AI on different software engineering tasks. It is planned to evolve and grow over time and extend it to other technologies. Specifically, this repo will be a C++ playground with Poco libraries.
+This is a draft pet project for testing Generative AI on different software engineering tasks. It is planned to evolve and grow over time. Specifically, this repo will be a C++ playground with Poco libraries.
 
 The application's legend is based on the sports-hub application description from the following repo: [Sports-Hub](https://github.com/dark-side/sports-hub).
 
@@ -16,7 +16,7 @@ The application's legend is based on the sports-hub application description from
 - Docker Compose
 
 The mentioned dependencies can be installed using the official documentation [here](https://docs.docker.com/compose/install/).
-[Podman](https://podman-desktop.io/docs/compose) can be used as an alternative to Docker.
+Read more about alternatives to Docker [here](https://github.com/dark-side/sports_hub_angular_skeleton/blob/main/READMORE_DockerAlternatives.md).
 
 ## Setup and Running the Application
 
@@ -51,7 +51,7 @@ Navigate to the back-end application directory and run (`-d` for detached mode t
 docker compose up -d
 ```
 
-### Attach to the Backend Container (optional)
+### Attach to the Backend Container (Optionally)
 
 Run `docker ps` and copy the `backend` application container ID. Then, connect to the container with the following command:
 

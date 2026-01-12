@@ -33,7 +33,7 @@ HTTPRequestHandler* AuthHandlerFactory::createRequestHandler(const HTTPServerReq
         return new OptionsHandler();
     }
 
-    if (urlContains(url, "/users") && method == "POST") {
+    if (urlContains(url, "/users/registrations") && method == "POST") {
         return new UsersHandler();
     }
 
